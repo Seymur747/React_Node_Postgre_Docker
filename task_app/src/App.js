@@ -1,9 +1,11 @@
 import React from 'react';
-import { Route,Routes,BrowserRouter, Router, Link,NavLink } from 'react-router-dom';
+import './App.css'
+import { Route,Routes } from 'react-router-dom';
 import OneArticleContainer from './Components/OneArticleContainer';
 import Menu from './Components/Menu';
 import ArticlesContainer from './Components/ArticlesContainer';
 import ArticleRedactContainer from './Components/ArticleRedactContainer';
+import NotFound from './Components/NotFound';
 
 
 
@@ -16,7 +18,7 @@ function App() {
         <Route path="/Articles" element={<ArticlesContainer />} />
         <Route path="/Article/:id" element={ <OneArticleContainer/>}/>
         <Route path="/Article/:id/edit=true" element={ <ArticleRedactContainer/>}/>
-        http
+        <Route path="*" element={ <NotFound/>}/>
       </Routes>
     </div>
 

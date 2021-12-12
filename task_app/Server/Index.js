@@ -17,4 +17,3 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
-// knex('articles').where({ id: 4 }).update({ updated_at: knex.fn.now(),heading:'updateHeading',contetns:'testContent' }).then(data=>console.log(data))

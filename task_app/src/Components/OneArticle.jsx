@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
  let OneArticle=(props)=>{
-     return  <table className="table table-hover">
+     return  <table className="table table-hover table-dark">
      <thead>
        <tr>
          <th scope="col">id</th>
@@ -25,6 +25,7 @@ import { NavLink } from "react-router-dom";
          </tr>
      )}
      </tbody>
+     <button className='btn btn-primary'><NavLink to='/articles'>Список</NavLink></button>
    </table>
  }
 

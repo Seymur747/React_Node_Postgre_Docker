@@ -18,10 +18,10 @@ class DataBase{
       let result= await knex('articles').where({ id: id }).del()
       return result
     }
-    //updated_at: knex.fn.now()
+
    async Update(id,heading,contetns){
-    let result= await knex('articles').where({ id: id }).update({ updated_at: knex.fn.now(),heading:heading,contetns:contetns })
-    console.log(result)
+    let result= await knex('articles').where({ id: id }).
+    update({ updated_at: knex.fn.now(),heading:heading,contetns:contetns })
     return result
    }
 }

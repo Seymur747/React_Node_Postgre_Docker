@@ -13,16 +13,16 @@ const instance = axios.create({
         },
         getOne:(id)=>{ 
               
-            return  axios.get(`http://localhost:3001/article/${id}`)
+            return  instance.get(`${id}`)
         },
         create:(heading,contetns)=>{
-            return  axios.post(`http://localhost:3001/article/`,{heading:heading,contetns:contetns})
+            return  instance.post(``,{heading:heading,contetns:contetns})
         },
         delete:(id)=>{
-            return  axios.delete(`http://localhost:3001/article/${id}`)
+            return  instance.delete(`${id}`)
         },
         edit:(id,heading,contetns)=>{
-            return  axios.put(`http://localhost:3001/article/${id}`,{heading:heading,contetns:contetns})
+            return  instance.put(`${id}`,{heading:heading,contetns:contetns})
         }
     }
     

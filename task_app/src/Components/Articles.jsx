@@ -4,17 +4,16 @@ import {NavLink} from 'react-router-dom'
 
 let Articles=(props)=>{
   let number=1;
-  console.log()
     return (
         <div className="container">
-            <table className="table table-hover">
+            <table className="table table-hover table-dark">
               <thead>
                 <tr>
                   <th scope="col">N</th>
-                  <th scope="col"></th>
+                  <th scope="col">Id</th>
                   <th scope="col">Заголовок</th>
                   <th scope="col">Дата создания</th>
-                  <th scope="col"><button onClick={props.sort}>sort</button></th>
+                  <th scope="col"><button className="btn btn-primary" onClick={props.sort}>Сортировать</button></th>
                 </tr>
               </thead>
             <tbody>
@@ -23,7 +22,7 @@ let Articles=(props)=>{
           <th scope="row">{number++}</th>
           <th scope="row">{data.id}</th>
           <td>{<NavLink to={`/article/${data.id}`}>{data.heading}</NavLink>}</td>
-          <td>{data.created_at}</td>
+          <td colSpan={2}>{data.created_at.split('T')[0] }<br/>{data.created_at.split('T')[1].split('Z') }</td>
         </tr>
       )}
   </tbody>
