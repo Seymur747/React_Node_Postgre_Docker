@@ -1,0 +1,16 @@
+// db('articles').where({ id: 3 }).update({ updated_at: db.fn.now() }).then()
+
+// //delete
+// //db('articles').where({ heading: 'testx' }).del().then(result=>console.log('suc'))
+// //insert
+// //db('articles').insert({heading:'testx',contetns:'testx'}).then(result=>console.log(result))
+// //get
+// db('articles').from('articles').then(data=>console.log(data ))
+//get by id
+//  db('articles').from('articles').where({id:5}).then(data=>{if(!data.length){console.log('netu')}})
+
+//delete
+
+
+
+// console.log(db.select('*').from('articles'))
