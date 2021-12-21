@@ -1,0 +1,64 @@
+version: "3.9"
+volumes:
+   pgvolumes:
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: SEYMUR951159
+      POSTGRES_USER: postgres
+    volumes:
+      - pgvolumes:/var/lib/postgresql/data
+
+
+  server:
+      build:
+        dockerfile: ./Dockerfile
+        context: './server'
+      environment:
+        PGHOST: db
+        PGUSER: postgres
+        PGDATABASE: postgres
+        PGPASSWORD: SEYMUR951159
+        PGPORT: 5432
+      volumes: 
+        - ./postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+        - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/
+      ports:
+        - "3001:3001"
+      depends_on:
+        - db 
+  client:
+      stdin_open: true
+      build:
+        dockerfile: ./Dockerfile
+        context: ./client
+      volumes:
+        - app/node_modules
+        - ./client:/app
+      ports:
+        - "3000:3000"
+
+
+    #   volumes:
+    #     - ../2. Init Database:/docker-entrypoint-initdb.d
+    #     - .:/var/lib/postgresql/data
+    #   ports:
+    #     - "5432:5432"
+    # client:
+    #   build:
+    #     context: ./client
+    #     dockerfile: ./Dockerfile
+    #   ports:
+    #     - "3000:3000"
+    
+    # server:
+    #   build:
+    #     context: ./server
+    #     dockerfile: ./Dockerfile
+    #   ports:
+    #     - "3001:3001"
+    #   restart: always
+    

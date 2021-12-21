@@ -1,9 +1,9 @@
-const knex=require('./../Knex/knex')
+const knex=require('./Knex/knex')
 
 class DataBase{
 
    async SelectAll(){
-      let result= await knex.select('*').from('articles').orderBy('id','asc')
+      let result= await knex.select('*').from('articles').orderBy('id')
      return result
     }
    async SelectById(id){

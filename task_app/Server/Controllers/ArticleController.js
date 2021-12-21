@@ -15,7 +15,6 @@ const db=require('./../db');
             res.status(400).send('Not found')
         }
     }
-
    async  Create(req,res){
        let heading=req.body.heading
        let contetns=req.body.contetns;
